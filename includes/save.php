@@ -1,7 +1,8 @@
 <?
 
-include "../_info_.php";
+//include "../login_check.php";
 include "../../../config/config.php";
+include "../_info_.php";
 include "../../../functions.php";
 
 include "options_config.php";
@@ -27,11 +28,13 @@ $meterpreter_port = $_POST["meterpreter_port"];
 if ($type == "settings") {
 
     $exec = "/bin/sed -i 's/^\\\$meterpreter_host.*/\\\$meterpreter_host = \\\"".$meterpreter_host."\\\";/g' ../_info_.php";
-    exec("$bin_danger \"" . $exec . "\"", $output);
+    //exec("$bin_danger \"" . $exec . "\"", $output); //DEPRECATED
+    $output = exec_fruitywifi($exec);
 
     $exec = "/bin/sed -i 's/^\\\$meterpreter_port.*/\\\$meterpreter_port = \\\"".$meterpreter_port."\\\";/g' ../_info_.php";
-    exec("$bin_danger \"" . $exec . "\"", $output);
-	
+    //exec("$bin_danger \"" . $exec . "\"", $output); //DEPRECATED
+	exec_fruitywifi($exec);
+    
     header('Location: ../index.php?tab=0');
     exit;
 

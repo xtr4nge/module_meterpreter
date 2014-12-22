@@ -14,10 +14,10 @@
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/ 
+*/
 ?>
 <?
-//include "../login_check.php";
+include "../../../login_check.php";
 include "../../../config/config.php";
 include "../_info_.php";
 include "../../../functions.php";
@@ -52,8 +52,9 @@ if($service != "") {
         }
 			
 		$exec = "$bin_php meterpreter.php > /dev/null &";
-        exec($exec);
+        //exec($exec);
 		//exec("$bin_danger \"$exec\"" );
+        exec_fruitywifi($exec);
 		
     } else if($action == "stop") {
         // STOP MODULE

@@ -1,4 +1,5 @@
 <?php
+include "../../../config/config.php";
 include "../_info_.php";
 
 error_reporting(0);
